@@ -26,3 +26,26 @@ var firstUniqChar = function (s) {
   }
   return -1;
 };
+
+const firstUniqCharOptimized = (s) => {
+  let counterMap = new Map();
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+    if (counterMap.has(char)) {
+      counterMap.set(char, { count: counterMap.get(char).count + 1, index: i });
+    } else {
+      counterMap.set(char, { count: 1, index: i });
+    }
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+    if (counterMap.get(char).count === 1) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+console.log(firstUniqCharOptimized("leetcode"));
+console.log(firstUniqCharOptimized("aabb"));
