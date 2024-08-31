@@ -52,6 +52,27 @@ var uncommonFromSentences = function (s1, s2) {
   return res;
 };
 
-console.log(uncommonFromSentences("apple apple", "banana"));
+var uncommonFromSentencesOptimized = function (s1, s2) {
+  const wordCount = new Map();
 
-console.log(uncommonFromSentences("this apple is sweet", "this apple is sour"));
+  // create a common array for both strings
+  const words = [...s1.split(" "), ...s2.split(" ")];
+
+  // created common dictionary for stroning the word coount
+  for (const word of words) {
+    if (wordCount.has(word)) {
+      wordCount.set(word, wordCount.get(word) + 1);
+    } else {
+      wordCount.set(word, 1);
+    }
+  }
+
+  // loop over the words and check the count is 1 then return only those words
+  return words.filter((word) => wordCount.get(word) === 1);
+};
+
+console.log(uncommonFromSentencesOptimized("apple apple", "banana"));
+
+console.log(
+  uncommonFromSentencesOptimized("this apple is sweet", "this apple is sour"),
+);
