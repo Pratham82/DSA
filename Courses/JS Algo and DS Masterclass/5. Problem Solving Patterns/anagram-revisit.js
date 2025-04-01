@@ -32,9 +32,34 @@ function validAnagram(str1, str2) {
 
 }
 
+function validAnagramOptimized(str1, str2) {
+  const lookup = {}
 
-console.log(validAnagram('aaz', 'zza'))
-console.log(validAnagram('anagram', 'nagaram'))
-console.log(validAnagram('querty', 'eurtyq'))
-console.log(validAnagram('', ''))
+  // make lookup of the first word
+  for (char of str1) {
+    lookup[char] = (lookup[char] ?? 0) + 1
+  }
+
+  // loop over second word and check if the value exisit in 
+  for (char of str2) {
+    // Check if the charchacter found in word
+    // If not found or the count is zero return false
+    if (!lookup[char]) {
+      return false
+    }
+    // Decarse the count of found character
+    else {
+      lookup[char] -= 1
+    }
+  }
+
+  return true
+}
+
+
+// console.log(validAnagram('aaz', 'zza'))
+console.log(validAnagramOptimized('aaz', 'zza'))
+console.log(validAnagramOptimized('anagram', 'nagaram'))
+// console.log(validAnagram('querty', 'eurtyq'))
+// console.log(validAnagram('', ''))
 
