@@ -1,6 +1,5 @@
-// Write a funciton which accepts an array of integers and a number called n. 
+// Write a funciton which accepts an array of integers and a number called n.
 // The function should calculate the max sum of n consecutive elements of an array
-
 
 // brute force
 function maxSubarraySum(arr, n) {
@@ -17,7 +16,6 @@ function maxSubarraySum(arr, n) {
 function maxSubarraySumWithouBuiltIn(arr, n) {
   let maxSum = 0
   for (let i = 0; i < arr.length - n; i++) {
-
     let tempSum = 0
     for (let j = 0; j < n; j++) {
       tempSum += arr[i + j]
@@ -31,9 +29,7 @@ function maxSubarraySumWithouBuiltIn(arr, n) {
 
 // max subarray with sliding window
 
-
 function maximumSubArrayWithSlidingWindow(arr, n) {
-
   // 1. get the sum of 1st n elemens
   // 2. keep that as maxSum
   // 3. Initiate tempSum with maxSum
@@ -61,9 +57,6 @@ function maximumSubArrayWithSlidingWindow(arr, n) {
   }
   return maxSum
 }
-
-
-
 
 // console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2))
 // console.log(maxSubarraySumWithouBuiltIn([1, 2, 5, 2, 8, 1, 5], 2))
