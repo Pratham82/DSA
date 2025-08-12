@@ -11,6 +11,6 @@ class Solution {
 
       n = Math.floor(n / 10)
     }
-
+    return max
   }
 }
