@@ -23,16 +23,35 @@ var isPalindrome = function(s) {
 
   // return this.sanitize(s) === this.reverseString(s)
 
-  let str = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-  let left = 0
-  let right = str.length - 1
+  // let str = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+  // let left = 0
+  // let right = str.length - 1
+  //
+  // while (left < right) {
+  //   if (str[left] !== str[right]) return false
+  //   left++
+  //   right--
+  // }
+  // return true
 
-  while (left < right) {
-    if (str[left] !== str[right]) return false
-    left++
-    right--
+  // with recursion
+  const reverse = (s) => {
+    const rev = (left, right, s) => {
+      if (left > right) return
+
+      [s[right], s[left]] = [s[left], s[right]]
+
+      return rev(left + 1, right - 1, s)
+    }
+
+    rev(0, s.length - 1, s)
+
+    return s.join('')
   }
-  return true
+
+  const sanitize = s => s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+  const reversed = reverse(sanitize(s).split(''))
+  return reversed === sanitize(s)
 }
 
 
