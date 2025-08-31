@@ -1,7 +1,7 @@
 class Solution {
   insertionSort(nums) {
-    // loops from  0 to length - 1
-    for (let i = 0; i < nums.length - 1; i++) {
+    // loops from  0 to length
+    for (let i = 0; i < nums.length; i++) {
       let j = i
 
       // loops from i to 0 in decreasing order until current element is lesser than prev
