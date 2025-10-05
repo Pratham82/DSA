@@ -7,7 +7,8 @@ class Solution {
     ansRow.push(ans)
 
     for (let col = 1; col < row; col++) {
-      // formula
+      // formula: ans = ans * (row - col) / col
+      // C(n, k) = C(n, k-1) * (n - k + 1) / k
       ans = ans * (row - col)
       ans = ans / col
       ansRow.push(ans)
