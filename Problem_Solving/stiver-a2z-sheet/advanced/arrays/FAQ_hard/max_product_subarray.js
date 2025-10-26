@@ -37,6 +37,8 @@ class Solution {
       suffix *= nums[N - i - 1]
 
       maxProd = Math.max(maxProd, prefix, suffix)
+      // multiplying by 0 (or having negative numbers) can give -0
+      maxProd = Math.max(maxProd, prefix || 0, suffix || 0)
     }
 
     return maxProd
@@ -45,3 +47,4 @@ class Solution {
 
 const soln = new Solution()
 console.log(soln.maxProduct([4, 5, 3, 7, 1, 2]))
+console.log(soln.maxProduct([-5, 0, -2]))
