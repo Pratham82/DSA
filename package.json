@@ -1,0 +1,12 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "scripts": {
+    "lc": "node Problem_Solving/runlc.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
+
